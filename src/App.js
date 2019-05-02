@@ -1,12 +1,28 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
+import Index from './components/layout/Index';
+import { Provider } from './context';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello world</h1>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Provider>
+          <Router>
+          <React.Fragment>
+            <Navbar />
+            <div className="container">
+              <Switch>
+                //removes hash for routes with matching keywords
+                <Route exact path="/" component={Index} />
+              </Switch>
+            </div>
+          </React.Fragment>
+          </Router>
+        </Provider>
+    );
+  }
 }
 
 export default App;
