@@ -1,6 +1,9 @@
 # lyricsearch-react
 Is this machine learning?
 
+# 04/03
+Using CORS anywhere to bypass that issue
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
