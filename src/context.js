@@ -16,7 +16,11 @@ export class Provider extends Component {
 			.get( //Bypassing CORS trick. TBD
 				`https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/chart/tracks.get?page-1&page_size-10&country=us&f_has_lyrics=1&apikey-${
 					process.env.REACT_APP_MM_KEY}`)
-			.then(res => console.log(res.data))
+			.then(res => {
+				console.log(res.data));
+				//this will put the track list in state
+				this.setState({track_list: res.data.message.body.track_list});
+			})
 			.catch(err => console.log(err));
 			//this should run as soon as the provider serves
 	}
