@@ -3,12 +3,26 @@ import axios from 'axios';
 
 const Context = React.createContext();
 
+const reducer = (state, action) => {
+	switch(action.type){
+		case: 'SEARCH_TRACKS':
+			return {
+				//spread operator to skip over
+				...state,
+				track_list: action.payload,
+				heading: 'Search Results'
+			};
+			default:
+				return state;
+	}
+}
 
 //not useing default class so that can export a consumer
 export class Provider extends Component {
 	state = {
-		track_list: []
-		heading: 'Top 10 Tracks'
+		track_list: [],
+		heading: 'Top 10 Tracks',
+		dispatch: action => this.setState(state => reducer(state, action))
 	};
 
 	componentDidMount() {
