@@ -15,7 +15,9 @@ export class Provider extends Component {
 		axios
 			.get( //Bypassing CORS trick. TBD
 				`https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/chart/tracks.get?page-1&page_size-10&country=us&f_has_lyrics=1&apikey-${
-					process.env.REACT_APP_MM_KEY}`)
+					process.env.REACT_APP_MM_KEY
+				}`
+			)
 			.then(res => {
 				console.log(res.data));
 				//this will put the track list in state
